@@ -44,6 +44,14 @@
       {{ candidate.district }},
       {{ candidate.gramPanchayat }}
     </p>
-    <button (click)="castVote(candidate)">Vote</button>
+    <div class="text-center">
+      <button
+        class="voteBtn"
+        (click)="castVote(candidate)"
+        [disabled]="disableBtn"
+      >
+        Vote
+      </button>
+    </div>
   </div>
 </div>

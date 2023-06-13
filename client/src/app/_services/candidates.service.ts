@@ -56,4 +56,13 @@ export class CandidatesService {
       params: httpParams,
     });
   }
+
+  casteVote(params: any) {
+    return this.http.put(this.baseUrl + 'candidates/cast-vote', params).pipe(
+      map(() => {
+        this.user!.hasVoted = true;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      })
+    );
+  }
 }

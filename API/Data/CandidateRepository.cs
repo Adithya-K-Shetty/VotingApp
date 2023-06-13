@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.DTOs;
+using API.Entities;
 using API.Helpers;
 using API.interfaces;
 using AutoMapper;
@@ -22,6 +23,12 @@ namespace API.Data
             _context = context;
             
         }
+
+        public async Task<CandidateData> GetCandidateByRegionPartyAsync(string regioncode, string partyname)
+        {
+           return await _context.Candidates.SingleOrDefaultAsync(x => x.RegionCode == regioncode && x.PartyName == partyname);
+        }
+
         public async Task<IEnumerable<CandidateDto>> GetCandidatesAsync(CandidateParams candidateParams)
         {
             var query = _context.Candidates.AsQueryable();

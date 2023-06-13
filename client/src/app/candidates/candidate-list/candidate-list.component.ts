@@ -25,8 +25,8 @@ export class CandidateListComponent implements OnInit {
       this.candidatesParams?.gramPanchayat
     );
     const params = {
-      district: 'Kasaragod',
-      gramPanchayat: 'Mangalapady',
+      district: this.candidatesParams?.district,
+      gramPanchayat: this.candidatesParams?.gramPanchayat,
       // Add more query parameters as needed
     };
     this.candidateService.getCandidates(params).subscribe({

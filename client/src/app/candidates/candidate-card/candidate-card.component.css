@@ -1,3 +1,7 @@
+.card {
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
 .card:hover img {
   transform: scale(1.2, 1.2);
   transition-duration: 500ms;
@@ -9,6 +13,8 @@
   transition-duration: 500ms;
   transition-timing-function: ease-out;
   object-fit: cover;
+  width: 320px;
+  height: 300px;
 }
 .card-img-wrapper {
   overflow: hidden;
@@ -46,4 +52,11 @@
 .is-online {
   animation: fa-blink 1.5s linear infinite;
   color: rgb(1, 189, 42);
+}
+.voteBtn {
+  border: 1px solid rgb(1, 189, 42);
+  padding: 10px 50px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
 }

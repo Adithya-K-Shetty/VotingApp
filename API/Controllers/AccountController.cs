@@ -49,7 +49,10 @@ namespace API.Controllers
                 {
                     Username = user.UserName,
                     Token =await _tokenService.CreateToken(user), 
-                    VoterIdNumber = user.VoterIdNumber   
+                    VoterIdNumber = user.VoterIdNumber,
+                    District = user.District,
+                    GramPanchayat = user.GramPanchayat,
+                    HasVoted = user.HasVoted   
                 }; // respose 
           }
 
