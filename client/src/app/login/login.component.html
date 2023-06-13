@@ -1,0 +1,32 @@
+<form
+  #loginForm="ngForm"
+  class="form-horizontal"
+  (ngSubmit)="login()"
+  autocomplete="off"
+>
+  <div class="mt-5 mb-3">
+    <input
+      name="username"
+      [(ngModel)]="model.username"
+      class="form-control me-2"
+      type="text"
+      placeholder="Username"
+    />
+  </div>
+
+  <div class="mb-3">
+    <input
+      name="password"
+      [(ngModel)]="model.password"
+      class="form-control me-2"
+      type="password"
+      placeholder="Password"
+    />
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" type="submit">Login</button>
+    <button class="btn btn-default" type="button" (click)="cancle()">
+      Cancel
+    </button>
+  </div>
+</form>

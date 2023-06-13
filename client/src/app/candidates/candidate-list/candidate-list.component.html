@@ -1,0 +1,9 @@
+<!-- <div *ngFor="let candidate of candidates">
+  <p>{{ candidate | json }}</p>
+</div> -->
+
+<div class="row">
+  <div class="col-3" *ngFor="let candidate of candidates">
+    <app-candidate-card [candidate]="candidate"></app-candidate-card>
+  </div>
+</div>

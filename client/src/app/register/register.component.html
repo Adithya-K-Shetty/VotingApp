@@ -1,0 +1,79 @@
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="registerForm.valid && register()"
+  autocomplete="off"
+>
+  <h2 class="text-center text-primary">Sign Up</h2>
+  <hr />
+  <app-text-input
+    [formControl]="$any(registerForm.controls['username'])"
+    [label]="'Username'"
+  ></app-text-input>
+  <app-date-picker
+    [formControl]="$any(registerForm.controls['dateOfBirth'])"
+    [label]="'Date Of Birth'"
+    [maxDate]="maxDate"
+  ></app-date-picker>
+  <app-text-input
+    [formControl]="$any(registerForm.controls['voterIdNumber'])"
+    [label]="'Voter ID Number'"
+  ></app-text-input>
+  <select
+    class="form-control mb-3"
+    (change)="changeCity($event)"
+    formControlName="district"
+    autocomplete="off"
+  >
+    <option value="">Choose District</option>
+    <option *ngFor="let city of District" [ngValue]="city">
+      {{ city }}
+    </option>
+  </select>
+
+  <select
+    class="form-control mb-3"
+    (change)="changePanchayat($event)"
+    formControlName="gramPanchayat"
+    autocomplete="off"
+  >
+    <option value="">Choose GramPanchayat</option>
+    <option *ngFor="let panchayat of GramPanchayat" [ngValue]="panchayat">
+      {{ panchayat }}
+    </option>
+  </select>
+  <!--End Of Test-->
+  <app-text-input
+    [formControl]="$any(registerForm.controls['pass'])"
+    [label]="'Password'"
+    [type]="'password'"
+  ></app-text-input>
+  <app-text-input
+    [formControl]="$any(registerForm.controls['confirmPassword'])"
+    [label]="'Confirm Password'"
+    [type]="'password'"
+  ></app-text-input>
+
+  <div class="row" *ngIf="validationErrors">
+    <ul class="text-danger">
+      <li *ngFor="let error of validationErrors">
+        {{ error }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="text-center">
+    <button
+      [disabled]="!registerForm.valid"
+      class="btn btn-success me-2"
+      type="submit"
+    >
+      Register
+    </button>
+    <button class="btn btn-default" type="button" (click)="cancle()">
+      Cancel
+    </button>
+  </div>
+</form>
+
+<p>Form Value : {{ registerForm.value | json }}</p>
+<p>Form Value : {{ registerForm.status | json }}</p>

@@ -1,0 +1,55 @@
+[
+  {
+    "UserName": "Lakshmi",
+    "VoterIdNumber": "9337 2456 1234",
+    "DateOfBirth": "2000-07-22",
+    "District": "Kasaragod",
+    "GramPanchayat": "Mangalapady",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/54.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Divya",
+    "VoterIdNumber": "5332 2136 1256",
+    "DateOfBirth": "2001-10-12",
+    "District": "Kannur",
+    "GramPanchayat": "Udayagiri",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/50.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+
+  {
+    "UserName": "Vishnu",
+    "VoterIdNumber": "9227 2456 1254",
+    "DateOfBirth": "2001-02-07",
+    "District": "Kasaragod",
+    "GramPanchayat": "Manjewswaram",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/90.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Shubham",
+    "VoterIdNumber": "4327 2433 6634",
+    "DateOfBirth": "2000-04-09",
+    "District": "Kannur",
+    "GramPanchayat": "Chirrakal",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/87.jpg",
+        "IsMain": true
+      }
+    ]
+  }
+]

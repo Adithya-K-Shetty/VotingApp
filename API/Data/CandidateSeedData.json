@@ -1,0 +1,55 @@
+[
+  {
+    "CandidateName": "Ragunath",
+    "PartyName": "Fire",
+    "District": "Kasaragod",
+    "GramPanchayat": "Mangalapady",
+    "RegionCode": "Kasaragod-Mangalapady",
+    "VoteCount": 0,
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/90.jpg"
+      }
+    ]
+  },
+  {
+    "CandidateName": "Vijayan",
+    "PartyName": "Water",
+    "District": "Kasaragod",
+    "GramPanchayat": "Mangalapady",
+    "RegionCode": "Kasaragod-Mangalapady",
+    "VoteCount": 0,
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/87.jpg"
+      }
+    ]
+  },
+
+  {
+    "CandidateName": "Susheela",
+    "PartyName": "Air",
+    "District": "Kasaragod",
+    "GramPanchayat": "Mangalapady",
+    "RegionCode": "Kasaragod-Mangalapady",
+    "VoteCount": 0,
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/54.jpg"
+      }
+    ]
+  },
+  {
+    "CandidateName": "Guru",
+    "PartyName": "Soil",
+    "District": "Kasaragod",
+    "GramPanchayat": "Mangalapady",
+    "RegionCode": "Kasaragod-Mangalapady",
+    "VoteCount": 0,
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/87.jpg"
+      }
+    ]
+  }
+]
