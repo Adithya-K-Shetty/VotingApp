@@ -52,3 +52,31 @@
 .nav-tabs {
   --bs-nav-tabs-border-width: 0px;
 }
+
+body {
+  /* background: linear-gradient(
+    90deg,
+    hsla(332, 53%, 82%, 1) 0%,
+    hsla(176, 57%, 89%, 1) 100%
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    hsla(312, 66%, 76%, 1) 0%,
+    hsla(234, 93%, 67%, 1) 100%
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    hsla(260, 28%, 53%, 1) 0%,
+    hsla(170, 42%, 71%, 1) 100%
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    hsla(260, 28%, 53%, 1) 0%,
+    hsla(170, 42%, 71%, 1) 100%
+  ); */
+  background: linear-gradient(
+    90deg,
+    hsla(238, 100%, 71%, 1) 0%,
+    hsla(295, 100%, 84%, 1) 100%
+  );
+}

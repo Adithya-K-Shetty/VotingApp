@@ -1,16 +1,17 @@
-<div class="container mt-5">
+<div class="container">
   <div *ngIf="!registerMode && !loginMode" style="text-align: center">
-    <h1>Find Your Match</h1>
+    <h1>Welcome To Kerala Vote Application</h1>
     <p class="lead">
-      Come on into view your matches... all you need to do is sign up!
+      Register Yourself To Cast Your Vote On
+      <span class="dateStyle">13-06-2023</span>
     </p>
-    <div class="text-center">
-      <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">
-        Sign Up
-      </button>
-      <button (click)="loginToggle()" class="btn btn-info btn-lg">
-        Sign In
-      </button>
+    <strong class="tagLineStyle">Your Vote, Your Voice</strong>
+    <div>
+      <img src="../../assets/vote.png" alt="" />
+    </div>
+    <div class="text-center mt-1">
+      <button (click)="registerToggle()" class="signUpBtn me-2">Sign Up</button>
+      <button (click)="loginToggle()" class="signInBtn">Sign In</button>
     </div>
   </div>
   <div *ngIf="registerMode" class="container">

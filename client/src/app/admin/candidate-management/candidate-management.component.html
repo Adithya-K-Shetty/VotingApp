@@ -1,0 +1,34 @@
+<!-- <div *ngFor="let candidate of allCandidates">
+  <p>{{ candidate | json }}</p>
+</div> -->
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width: 20%">CandidateName</th>
+        <th style="width: 20%">PartyName</th>
+        <th style="width: 20%">PartyLogo</th>
+        <th style="width: 20%">VoteCount</th>
+        <th style="width: 20%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of allCandidates">
+        <td class="candidateDataStyle">{{ candidate.candidateName }}</td>
+        <td class="candidateDataStyle">{{ candidate.partyName }}</td>
+        <td>
+          <img
+            class="partyLogo"
+            src="{{ './assets/' + candidate.partyName + '.png' }}"
+            alt=""
+          />
+        </td>
+        <td class="candidateDataStyle">{{ candidate.voteCount }}</td>
+        <td>
+          <button class="btn btn-danger">Delete Candidate</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

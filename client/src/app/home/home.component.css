@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+img {
+  margin-bottom: 5px;
+  width: 850px;
+  height: 420px;
+}
+
+.dateStyle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  border: 1px solid #000000;
+  padding: 2px;
+  margin-left: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.tagLineStyle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  margin-left: 4rem;
+  color: #000000;
+}
+
+.signUpBtn {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  padding: 0 10px;
+  border: 1px solid rgb(245, 71, 100);
+  background-color: rgb(246, 96, 121);
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.signInBtn {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  padding: 0 10px;
+  border: 1px solid rgb(71, 132, 245);
+  background-color: rgb(96, 126, 246);
+  border-radius: 10px;
+  color: #ffffff;
+}
+.signUpBtn:hover {
+  background-color: rgb(245, 71, 100);
+  color: #000000;
+}
+.signInBtn:hover {
+  background-color: rgb(71, 91, 245);
+  color: #000000;
+}

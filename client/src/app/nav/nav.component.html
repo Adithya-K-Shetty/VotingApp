@@ -1,9 +1,10 @@
 <nav class="navbar navbar-light navbar-expand-md fixed-top">
   <div class="container">
     <div class="brandNameBg">
-      <a class="navbar-brand brandName" routerLink="/" routerLinkActive="active"
+      <!-- <a class="navbar-brand brandName" routerLink="/" routerLinkActive="active"
         >KVA</a
-      >
+      > -->
+      <img class="brandLogo" src="../../assets/brand.png" alt="" />
     </div>
 
     <!--ngIf is a structural directive which adds and
@@ -46,7 +47,11 @@
       *ngIf="accountService.currentUser$ | async as user"
       dropdown
     >
-      <img src="{{ user.photoUrl || './assets/user.png' }}" alt="user photo" />
+      <img
+        class="profileLogo"
+        src="{{ user.photoUrl || './assets/user.png' }}"
+        alt="user photo"
+      />
       <a
         class="dropdown-toggle text-light text-decoration-none ms-2"
         dropdownToggle

@@ -34,6 +34,7 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
 import { LoginComponent } from './login/login.component';
 import { CandidateListComponent } from './candidates/candidate-list/candidate-list.component';
 import { CandidateCardComponent } from './candidates/candidate-card/candidate-card.component';
+import { CandidateManagementComponent } from './admin/candidate-management/candidate-management.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { CandidateCardComponent } from './candidates/candidate-card/candidate-ca
     LoginComponent,
     CandidateListComponent,
     CandidateCardComponent,
+    CandidateManagementComponent,
   ],
   imports: [
     BrowserModule,

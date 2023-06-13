@@ -13,6 +13,7 @@ export class CandidateCardComponent implements OnInit {
   @Input() candidate: Candidate | undefined;
   user: User | undefined;
   disableBtn = false;
+  //disableBtn = false;
   votedate = '13-6-2023';
 
   constructor(
@@ -46,6 +47,7 @@ export class CandidateCardComponent implements OnInit {
       currentHour <= 18
     ) {
       this.disableBtn = this.user.hasVoted;
+      //this.disableBtn = this.user.hasVoted;
     }
   }
 
@@ -73,4 +75,23 @@ export class CandidateCardComponent implements OnInit {
       },
     });
   }
+
+  /*--------Testing----------------*/
+  changeImage(event: MouseEvent): void {
+    const wrapper = event.target as HTMLDivElement;
+    const img = wrapper.querySelector('img') as HTMLImageElement;
+
+    // Change the image source on hover
+    if (this.candidate) img.src = this.candidate?.photoUrl;
+  }
+
+  resetImage(event: MouseEvent): void {
+    const wrapper = event.target as HTMLDivElement;
+    const img = wrapper.querySelector('img') as HTMLImageElement;
+
+    // Reset the image source on mouseleave
+    if (this.candidate)
+      img.src = './assets/' + this.candidate.partyName + '.png';
+  }
+  /*--------EndOfTesting----------*/
 }

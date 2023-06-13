@@ -7,5 +7,6 @@ export interface Candidate {
   partyName: string;
   district: string;
   gramPanchayat: string;
+  voteCount: Int16Array;
   photos: Photo[];
 }

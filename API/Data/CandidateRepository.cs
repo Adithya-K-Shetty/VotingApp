@@ -24,6 +24,11 @@ namespace API.Data
             
         }
 
+        public async Task<IEnumerable<CandidateData>> GetAllCandidatesAsync()
+        {
+            return await _context.Candidates.ToListAsync();
+        }
+
         public async Task<CandidateData> GetCandidateByRegionPartyAsync(string regioncode, string partyname)
         {
            return await _context.Candidates.SingleOrDefaultAsync(x => x.RegionCode == regioncode && x.PartyName == partyname);

@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 .brandNameBg {
   background-color: #d4ebfc;
-  padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
 .brandName {
@@ -16,8 +15,14 @@
   cursor: pointer;
 }
 
-img {
+.profileLogo {
   max-height: 50px;
   border: 2px solid white;
   display: inline;
+}
+
+.brandLogo {
+  max-height: 80px;
+  border-radius: 50%;
+  border: 1px solid #000000;
 }
