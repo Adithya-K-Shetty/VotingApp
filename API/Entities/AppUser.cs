@@ -25,6 +25,8 @@ namespace API.Entities
 
        public bool HasVoted {get;set;}
 
+        public List<Document> Documents {get;set;} = new();
+
         public List<Message> MessagesSent { get; set; }
 
         public List<Message> MessagesReceived { get; set; }

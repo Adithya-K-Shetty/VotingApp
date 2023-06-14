@@ -27,8 +27,10 @@ namespace API.Helpers
 
              CreateMap<CandidateData,CandidateDto>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.CandidateDataId == src.Id).Url));
-                
-
+            
+             CreateMap<Document,PhotoDto>();
+             CreateMap<AppUser,UserDto>()
+                .ForMember(dest => dest.DocumentUrl, opt => opt.MapFrom(src => src.Documents.FirstOrDefault(x => x.AppUserId == src.Id).Url));
             CreateMap<Photo,PhotoDto>();
             CreateMap<MemberUpdateDto,AppUser>();
             CreateMap<RegisterDto,AppUser>();

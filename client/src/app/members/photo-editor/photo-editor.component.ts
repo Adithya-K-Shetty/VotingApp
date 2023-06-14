@@ -4,6 +4,7 @@ import { take } from 'rxjs';
 import { Member } from 'src/app/_models/member';
 import { Photo } from 'src/app/_models/photo';
 import { User } from 'src/app/_models/user';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/_services/account.service';
 import { MembersService } from 'src/app/_services/members.service';
 import { environment } from 'src/environments/environment';
@@ -22,11 +23,14 @@ export class PhotoEditorComponent implements OnInit {
 
   constructor(
     private accoutService: AccountService,
-    private memberService: MembersService
+    private memberService: MembersService,
+    private router: Router
   ) {
     this.accoutService.currentUser$.pipe(take(1)).subscribe({
       next: (user) => {
-        if (user) this.user = user;
+        if (user) {
+          this.user = user;
+        }
       },
     });
   }
@@ -72,7 +76,7 @@ export class PhotoEditorComponent implements OnInit {
 
   //this is outside the angular Http Request
   //thats why we providing the auth token
-  intializeUploader() {
+  /*intializeUploader() {
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/add-photo',
       authToken: 'Bearer ' + this.user?.token,
@@ -97,6 +101,46 @@ export class PhotoEditorComponent implements OnInit {
           this.member.photoUrl = photo.url;
           this.accoutService.setCurrentUser(this.user);
         }
+      }
+    };
+  }*/
+
+  intializeUploader() {
+    this.uploader = new FileUploader({
+      url: this.baseUrl + 'users/add-document',
+      authToken: 'Bearer ' + this.user?.token,
+      isHTML5: true,
+      allowedFileType: ['image'],
+      removeAfterUpload: true, //after uploading it to api we just discard the image
+      autoUpload: false,
+      maxFileSize: 10 * 1024 * 1024,
+      method: 'PUT',
+    });
+    this.uploader.onAfterAddingFile = (file) => {
+      // file upload process does not require credentials, and the server is not configured to expect them
+      file.withCredentials = false; //else we have to adjust cors configuration
+    };
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if (response) {
+        console.log(JSON.parse(response));
+        const photo = JSON.parse(response);
+        //this.user?.documents.push(photo);
+        if (this.user) {
+          // this.user?.documents.push(photo);
+          this.user.documentUrl = photo.documentUrl;
+          this.accoutService.setCurrentUser(this.user);
+        }
+
+        // this.router
+        //   .navigateByUrl('/', { skipLocationChange: true })
+        //   .then(() => {
+        //     this.router.navigate(['member/edit']);
+        //   });
+        // if (photo.isMain && this.user && this.member) {
+        //   this.user.photoUrl = photo.url;
+        //   this.member.photoUrl = photo.url;
+        //   this.accoutService.setCurrentUser(this.user);
+        // }
       }
     };
   }

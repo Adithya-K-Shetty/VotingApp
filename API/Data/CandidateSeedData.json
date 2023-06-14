@@ -1,6 +1,6 @@
 [
   {
-    "CandidateName": "Ragunath",
+    "CandidateName": "Surendran",
     "PartyName": "Fire",
     "District": "Kasaragod",
     "GramPanchayat": "Mangalapady",
@@ -8,7 +8,7 @@
     "VoteCount": 0,
     "Photos": [
       {
-        "Url": "https://randomuser.me/api/portraits/men/90.jpg"
+        "Url": "https://res.cloudinary.com/dbqvopkx7/image/upload/v1686720372/samples/pol1_yezndl.jpg"
       }
     ]
   },
@@ -21,7 +21,7 @@
     "VoteCount": 0,
     "Photos": [
       {
-        "Url": "https://randomuser.me/api/portraits/men/87.jpg"
+        "Url": "https://res.cloudinary.com/dbqvopkx7/image/upload/v1686720738/samples/default_rrocer.png"
       }
     ]
   },
@@ -35,7 +35,7 @@
     "VoteCount": 0,
     "Photos": [
       {
-        "Url": "https://randomuser.me/api/portraits/women/54.jpg"
+        "Url": "https://res.cloudinary.com/dbqvopkx7/image/upload/v1686720802/samples/default2_xv6izz.png"
       }
     ]
   },
@@ -48,7 +48,7 @@
     "VoteCount": 0,
     "Photos": [
       {
-        "Url": "https://randomuser.me/api/portraits/men/87.jpg"
+        "Url": "https://res.cloudinary.com/dbqvopkx7/image/upload/v1686720738/samples/default_rrocer.png"
       }
     ]
   }

@@ -1,54 +1,50 @@
 [
   {
     "UserName": "Lakshmi",
-    "VoterIdNumber": "9337 2456 1234",
+    "VoterIdNumber": "UVF6619127",
     "DateOfBirth": "2000-07-22",
     "District": "Kasaragod",
     "GramPanchayat": "Mangalapady",
-    "Photos": [
+    "Documents": [
       {
-        "Url": "https://randomuser.me/api/portraits/women/54.jpg",
-        "IsMain": true
+        "Url": "https://drive.google.com/file/d/1C7tBueTalyR8uTAmTOW7sffj1vV0hd0n/view"
       }
     ]
   },
   {
     "UserName": "Divya",
-    "VoterIdNumber": "5332 2136 1256",
+    "VoterIdNumber": "UVF6619250",
     "DateOfBirth": "2001-10-12",
     "District": "Kannur",
     "GramPanchayat": "Udayagiri",
-    "Photos": [
+    "Documents": [
       {
-        "Url": "https://randomuser.me/api/portraits/women/50.jpg",
-        "IsMain": true
+        "Url": "./DefaultDocument.png"
       }
     ]
   },
 
   {
     "UserName": "Vishnu",
-    "VoterIdNumber": "9227 2456 1254",
+    "VoterIdNumber": "UVF6619034",
     "DateOfBirth": "2001-02-07",
     "District": "Kasaragod",
     "GramPanchayat": "Manjewswaram",
-    "Photos": [
+    "Documents": [
       {
-        "Url": "https://randomuser.me/api/portraits/men/90.jpg",
-        "IsMain": true
+        "Url": "./DefaultDocument.png"
       }
     ]
   },
   {
     "UserName": "Shubham",
-    "VoterIdNumber": "4327 2433 6634",
+    "VoterIdNumber": "UVF6619682",
     "DateOfBirth": "2000-04-09",
     "District": "Kannur",
     "GramPanchayat": "Chirrakal",
-    "Photos": [
+    "Documents": [
       {
-        "Url": "https://randomuser.me/api/portraits/men/87.jpg",
-        "IsMain": true
+        "Url": "./DefaultDocument.png"
       }
     ]
   }

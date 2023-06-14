@@ -53,9 +53,9 @@ namespace API.Controllers
         }
 
         [HttpGet("{username}")]
-        public async Task<ActionResult<MemberDto>> GetUser(string username)
+        public async Task<ActionResult<UserDto>> GetUser(string username)
         {
-           return await _userRepository.GetMemberAsync(username);
+           return await _userRepository.GetUserAsync(username);
             
         }
 
@@ -75,39 +75,78 @@ namespace API.Controllers
             return BadRequest("Failed To Update User");
         }
 
-        /*[HttpPost("add-photo")]
-        public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
+        // [HttpPut("add-document")]
+        // public async Task<ActionResult<PhotoDto>> AddDocument(IFormFile file)
+        // {
+        //     //entity frame work tracks the user
+        //     // var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+        //      var user = await _userRepository.GetUserByIdAsync(User.GetUserId());
+        //     if(user == null) return NotFound();
+
+        //     var result = await _photoService.AddPhotoAsync(file);
+
+        //     if(result.Error != null) return BadRequest(result.Error.Message);
+
+        //     var document = new Document{
+        //         Url = result.SecureUrl.AbsoluteUri,
+        //         PublicId = result.PublicId
+        //     };
+
+            
+
+        //     //tracks the user in memory
+        //     user.Documents.Add(document);
+
+        //     if(await _userRepository.SaveAllAsync())
+        //     {
+        //         //returns 201 created response
+        //         //along with location detail about where to find the newly created resource
+        //         //first parameter :- client will be redirected to the GetUser Method
+        //         //second parameter :- represents route values that will be used to construct the URL of the action method 
+        //         //third parameter :- represent the data returned in response body
+        //         return CreatedAtAction(nameof(GetUser),new {username = user.UserName},_mapper.Map<PhotoDto>(document));
+        //     }
+
+        //     return BadRequest("Problem Adding Photo");
+        // }
+
+[HttpPut("add-document")]
+public async Task<ActionResult<PhotoDto>> AddDocument(IFormFile file)
+{
+    var user = await _userRepository.GetUserByIdAsync(User.GetUserId());
+    if (user == null)
+        return NotFound();
+
+    var result = await _photoService.AddPhotoAsync(file);
+
+    if (result.Error != null)
+        return BadRequest(result.Error.Message);
+
+    var existingDocument = user.Documents.FirstOrDefault(x=>x.AppUserId == user.Id);
+    if (existingDocument != null)
+    {
+        // Update the existing document
+        existingDocument.Url = result.SecureUrl.AbsoluteUri;
+        existingDocument.PublicId = result.PublicId;
+    }
+    else
+    {
+        // Create a new document
+        var document = new Document
         {
-            //entity frame work tracks the user
-            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
-            if(user == null) return NotFound();
+            Url = result.SecureUrl.AbsoluteUri,
+            PublicId = result.PublicId
+        };
+        user.Documents.Add(document);
+    }
 
-            var result = await _photoService.AddPhotoAsync(file);
+    if (await _userRepository.SaveAllAsync())
+    {
+        return CreatedAtAction(nameof(GetUser), new { username = user.UserName }, _mapper.Map<PhotoDto>(user.Documents.FirstOrDefault()));
+    }
 
-            if(result.Error != null) return BadRequest(result.Error.Message);
-
-            var photo = new Photo{
-                Url = result.SecureUrl.AbsoluteUri,
-                PublicId = result.PublicId
-            };
-
-            if(user.Photos.Count == 0) photo.IsMain = true;
-
-            //tracks the user in memory
-            user.Photos.Add(photo);
-
-            if(await _userRepository.SaveAllAsync())
-            {
-                //returns 201 created response
-                //along with location detail about where to find the newly created resource
-                //first parameter :- client will be redirected to the GetUser Method
-                //second parameter :- represents route values that will be used to construct the URL of the action method 
-                //third parameter :- represent the data returned in response body
-                return CreatedAtAction(nameof(GetUser),new {username = user.UserName},_mapper.Map<PhotoDto>(photo));
-            }
-
-            return BadRequest("Problem Adding Photo");
-        }*/
+    return BadRequest("Problem Adding Photo");
+}
 
         /*[HttpPut("set-main-photo/{photoId}")]
 

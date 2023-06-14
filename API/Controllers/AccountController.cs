@@ -60,6 +60,7 @@ namespace API.Controllers
           public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
           {
             var user = await _userManager.Users
+             .Include(d => d.Documents)
             .SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
 
             if(user == null) return Unauthorized("Invalid Username");
@@ -76,7 +77,8 @@ namespace API.Controllers
                     VoterIdNumber = user.VoterIdNumber,
                     District = user.District,
                     GramPanchayat = user.GramPanchayat,
-                    HasVoted = user.HasVoted
+                    HasVoted = user.HasVoted,
+                    DocumentUrl = user.Documents.FirstOrDefault(x => x.AppUserId == user.Id)?.Url
                 };
           }
           private async Task<bool> UserExists(string username) // to check whether the user has already been registered

@@ -51,9 +51,17 @@ namespace API.Data
              return await PagedList<MemberDto>.CreateAsync(query.AsNoTracking().ProjectTo<MemberDto>(_mapper.ConfigurationProvider),userParams.PageNumber,userParams.PageSize);
         }
 
+        public async Task<UserDto> GetUserAsync(string username)
+        {
+             return await _context.Users
+                .Where(x => x.UserName == username)  //configuration take config from mapper automapperprofile
+                .ProjectTo<UserDto>(_mapper.ConfigurationProvider) //here we are projecting it into a member dto
+                .SingleOrDefaultAsync();
+        }
+
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users.Include(d=>d.Documents).SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<AppUser> GetUserByUsernameAsync(string username)
