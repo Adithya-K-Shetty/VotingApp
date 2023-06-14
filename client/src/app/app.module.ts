@@ -35,6 +35,8 @@ import { LoginComponent } from './login/login.component';
 import { CandidateListComponent } from './candidates/candidate-list/candidate-list.component';
 import { CandidateCardComponent } from './candidates/candidate-card/candidate-card.component';
 import { CandidateManagementComponent } from './admin/candidate-management/candidate-management.component';
+import { AllcandidatesListComponent } from './allcandidates/allcandidates-list/allcandidates-list.component';
+import { AllcandidatesCardComponent } from './allcandidates/allcandidates-card/allcandidates-card.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { CandidateManagementComponent } from './admin/candidate-management/candi
     CandidateListComponent,
     CandidateCardComponent,
     CandidateManagementComponent,
+    AllcandidatesListComponent,
+    AllcandidatesCardComponent,
   ],
   imports: [
     BrowserModule,

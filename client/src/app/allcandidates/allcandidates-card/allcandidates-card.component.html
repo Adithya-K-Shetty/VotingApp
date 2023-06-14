@@ -1,0 +1,23 @@
+<div class="card mb-4 mt-5" *ngIf="candidate">
+  <div
+    class="card-img-wrapper"
+    (mouseenter)="changeImage($event)"
+    (mouseleave)="resetImage($event)"
+  >
+    <img
+      src="{{ './assets/' + candidate.partyName + '.png' }}"
+      alt="{{ candidate.partyName }}"
+      class="card-img-top"
+    />
+  </div>
+  <div class="card-body p-1">
+    <h5 style="color: #958383" class="card-title text-center mb-1">
+      {{ candidate.candidateName }}
+    </h5>
+    <p class="card-text text-muted text-center">
+      {{ candidate.district }},
+      {{ candidate.gramPanchayat }}
+    </p>
+    <p class="text-center partyNameStyle">{{ candidate.partyName }}</p>
+  </div>
+</div>

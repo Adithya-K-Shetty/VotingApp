@@ -18,14 +18,22 @@
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link customNavStyle"
             routerLink="/candidates"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
-            >Candidates</a
+            >Vote Booth</a
           >
         </li>
         <li class="nav-item">
+          <a
+            class="nav-link customNavStyle"
+            routerLink="/allcandidates"
+            routerLinkActive="active"
+            >AllCandidates</a
+          >
+        </li>
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/lists" routerLinkActive="active"
             >Lists</a
           >
@@ -34,7 +42,7 @@
           <a class="nav-link" routerLink="/messages" routerLinkActive="active"
             >Messages</a
           >
-        </li>
+        </li> -->
         <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
           <a class="nav-link" routerLink="/admin" routerLinkActive="active"
             >Admin</a
@@ -53,7 +61,7 @@
         alt="user photo"
       />
       <a
-        class="dropdown-toggle text-light text-decoration-none ms-2"
+        class="dropdown-toggle text-dark text-decoration-none ms-2 userBtn"
         dropdownToggle
         >Welcome {{ user.username | titlecase }}</a
       >

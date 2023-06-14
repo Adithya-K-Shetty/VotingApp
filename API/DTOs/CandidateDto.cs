@@ -19,6 +19,12 @@ namespace API.DTOs
 
         public string GramPanchayat {get;set;}
 
+        //new-added
+        public string RegionCode {get;set;}
+
+        //new-added
+        public int VoteCount{get;set;}
+
         public List<PhotoDto> Photos {get;set;}
     }
 }

@@ -7,11 +7,18 @@
     </p>
     <strong class="tagLineStyle">Your Vote, Your Voice</strong>
     <div>
-      <img src="../../assets/vote.png" alt="" />
+      <img class="animate__bounceIn" src="../../assets/vote.png" alt="" />
     </div>
     <div class="text-center mt-1">
-      <button (click)="registerToggle()" class="signUpBtn me-2">Sign Up</button>
-      <button (click)="loginToggle()" class="signInBtn">Sign In</button>
+      <button
+        (click)="registerToggle()"
+        class="signUpBtn me-2 animate__backInUp"
+      >
+        Sign Up
+      </button>
+      <button (click)="loginToggle()" class="signInBtn animate__backInUp">
+        Sign In
+      </button>
     </div>
   </div>
   <div *ngIf="registerMode" class="container">

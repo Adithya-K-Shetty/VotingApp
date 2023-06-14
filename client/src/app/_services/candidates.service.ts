@@ -57,6 +57,12 @@ export class CandidatesService {
     });
   }
 
+  getAllCandidates() {
+    return this.http.get<Candidate[]>(
+      this.baseUrl + 'candidates/get-all-candidates'
+    );
+  }
+
   casteVote(params: any) {
     return this.http.put(this.baseUrl + 'candidates/cast-vote', params).pipe(
       map(() => {

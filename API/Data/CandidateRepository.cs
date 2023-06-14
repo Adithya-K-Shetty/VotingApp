@@ -24,9 +24,36 @@ namespace API.Data
             
         }
 
-        public async Task<IEnumerable<CandidateData>> GetAllCandidatesAsync()
+        public async Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync()
         {
-            return await _context.Candidates.ToListAsync();
+            return await _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider).ToListAsync();
+        }
+
+        public async Task<IEnumerable<CandidateDto>> GetAllWinners()
+        {
+
+               var query = _context.Candidates
+        .GroupBy(c => c.RegionCode)
+        .Select(g => new
+        {
+            RegionCode = g.Key,
+            MaxVoteCount = g.Max(c => c.VoteCount),
+            Candidates = g.Where(c => c.VoteCount == g.Max(c => c.VoteCount))
+                .Select(c => new CandidateDto
+                {
+                    CandidateName = c.CandidateName,
+                    PhotoUrl =  c.Photos.FirstOrDefault().Url,
+                    PartyName = c.PartyName,
+                    RegionCode = c.RegionCode,
+                    VoteCount = c.VoteCount,
+                    District = c.District,
+                    GramPanchayat = c.GramPanchayat
+                })
+        });
+
+    var winners = await query.ToListAsync();
+    return winners.SelectMany(w => w.Candidates);
+
         }
 
         public async Task<CandidateData> GetCandidateByRegionPartyAsync(string regioncode, string partyname)

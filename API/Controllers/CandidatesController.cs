@@ -37,6 +37,12 @@ namespace API.Controllers
             return Ok(allCandidates); 
         }
 
+        [HttpGet("get-all-winners")]
+        public async Task<ActionResult<IEnumerable<CandidateDto>>> GetAllWinners(){
+            var allwinners = await _candidateRepository.GetAllWinners();
+            return Ok(allwinners);
+        }
+
         [HttpPut("cast-vote")]
 
         public async Task<ActionResult> CastVote(CasteVoteDto casteVoteDto)
