@@ -8,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   registerMode = false;
   loginMode = false;
+  voteDate = 16;
+  fullVoteDate = 'On 16-05-2023';
+  homeString = '';
   users: any;
-  constructor() {}
+  constructor() {
+    if (this.voteDate > new Date().getDate()) {
+      this.homeString = this.fullVoteDate;
+    } else if (this.voteDate == new Date().getDate()) {
+      this.homeString = 'Voting Is Live';
+    }
+  }
 
   ngOnInit(): void {}
   registerToggle() {

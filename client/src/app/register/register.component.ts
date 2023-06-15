@@ -104,7 +104,7 @@ export class RegisterComponent implements OnInit {
     console.log(values);
     this.accountService.register(values).subscribe({
       next: () => {
-        this.router.navigateByUrl('/members');
+        this.router.navigateByUrl('/candidates');
       },
       error: (error) => {
         this.validationErrors = error;

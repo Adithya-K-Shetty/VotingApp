@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Candidate } from 'src/app/_models/candidate';
 import { User } from 'src/app/_models/user';
 import { CandidatesService } from 'src/app/_services/candidates.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-candidate-card',
@@ -14,9 +15,10 @@ export class CandidateCardComponent implements OnInit {
   user: User | undefined;
   disableBtn = false;
   //disableBtn = false;
-  votedate = '14-6-2023';
+  votedate = '15-6-2023';
 
   constructor(
+    private toastr: ToastrService,
     private candidateService: CandidatesService,
     private router: Router,
     private cdr: ChangeDetectorRef
@@ -60,6 +62,7 @@ export class CandidateCardComponent implements OnInit {
     };
     this.candidateService.casteVote(params).subscribe({
       next: () => {
+        this.toastr.success('Successfully Voted');
         const userString = localStorage.getItem('user');
         console.log(userString);
         if (!userString) return;

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { getHours } from 'ngx-bootstrap/chronos/utils/date-getters';
 
 @Component({
   selector: 'app-nav',
@@ -12,12 +13,25 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-
+  user: User | undefined;
+  voteDate = 16;
+  show = true;
   constructor(
     public accountService: AccountService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: (user) => {
+        if (user) {
+          this.user = user;
+        }
+      },
+    });
+    if (this.voteDate != new Date().getDate() && new Date().getHours() < 18) {
+      this.show = false;
+    }
+  }
 
   ngOnInit(): void {}
 

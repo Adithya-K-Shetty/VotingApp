@@ -2,13 +2,13 @@
   <div *ngIf="!registerMode && !loginMode" style="text-align: center">
     <h1>Welcome To Kerala Vote Application</h1>
     <p class="lead">
-      Register Yourself To Cast Your Vote On
-      <span class="dateStyle">13-06-2023</span>
+      Register Yourself To Cast Your Vote
+      <span class="dateStyle">{{ homeString }}</span>
     </p>
     <strong class="tagLineStyle">Your Vote, Your Voice</strong>
-    <!-- <div>
+    <div>
       <img class="animate__bounceIn" src="../../assets/vote.png" alt="" />
-    </div> -->
+    </div>
     <div class="text-center mt-1">
       <button
         (click)="registerToggle()"

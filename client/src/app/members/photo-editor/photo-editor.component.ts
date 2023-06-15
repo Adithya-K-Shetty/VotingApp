@@ -125,11 +125,17 @@ export class PhotoEditorComponent implements OnInit {
         console.log(JSON.parse(response));
         const photo = JSON.parse(response);
         //this.user?.documents.push(photo);
-        if (this.user) {
+
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['member/edit']);
+          });
+        /*if (this.user) {
           // this.user?.documents.push(photo);
           this.user.documentUrl = photo.documentUrl;
           this.accoutService.setCurrentUser(this.user);
-        }
+        }*/
 
         // this.router
         //   .navigateByUrl('/', { skipLocationChange: true })
