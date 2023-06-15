@@ -9,8 +9,8 @@
         <th style="width: 20%">CandidateName</th>
         <th style="width: 20%">PartyName</th>
         <th style="width: 20%">PartyLogo</th>
+        <th style="width: 20%">Region</th>
         <th style="width: 20%">VoteCount</th>
-        <th style="width: 20%"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +24,10 @@
             alt=""
           />
         </td>
-        <td class="candidateDataStyle">{{ candidate.voteCount }}</td>
-        <td>
-          <button class="btn btn-danger">Delete Candidate</button>
+        <td class="candidateDataStyle">
+          {{ candidate.district }}, {{ candidate.gramPanchayat }}
         </td>
+        <td class="candidateDataStyle">{{ candidate.voteCount }}</td>
       </tr>
     </tbody>
   </table>

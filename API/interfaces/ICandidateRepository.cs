@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.interfaces
 {
@@ -18,5 +19,7 @@ namespace API.interfaces
         Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync();
 
          Task<IEnumerable<CandidateDto>> GetAllWinners();
+
+         //Task<ActionResult<CandidateDto>> AddCandidate(IFormFile file,CandidateRegisterDto candidateRegisterDto);
     }
 }

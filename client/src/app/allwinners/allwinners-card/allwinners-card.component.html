@@ -1,0 +1,23 @@
+<div class="card mb-4 mt-5" *ngIf="winner">
+  <div
+    class="card-img-wrapper"
+    (mouseenter)="changeImage($event)"
+    (mouseleave)="resetImage($event)"
+  >
+    <img
+      src="{{ './assets/' + winner.partyName + '.png' }}"
+      alt="{{ winner.partyName }}"
+      class="card-img-top"
+    />
+  </div>
+  <div class="card-body p-1">
+    <h5 style="color: #958383" class="card-title text-center mb-1">
+      {{ winner.candidateName }}
+    </h5>
+    <p class="card-text text-muted text-center">
+      {{ winner.district }},
+      {{ winner.gramPanchayat }}
+    </p>
+    <p class="text-center partyNameStyle">{{ winner.partyName }}</p>
+  </div>
+</div>

@@ -37,6 +37,9 @@ import { CandidateCardComponent } from './candidates/candidate-card/candidate-ca
 import { CandidateManagementComponent } from './admin/candidate-management/candidate-management.component';
 import { AllcandidatesListComponent } from './allcandidates/allcandidates-list/allcandidates-list.component';
 import { AllcandidatesCardComponent } from './allcandidates/allcandidates-card/allcandidates-card.component';
+import { AllwinnersListComponent } from './allwinners/allwinners-list/allwinners-list.component';
+import { AllwinnersCardComponent } from './allwinners/allwinners-card/allwinners-card.component';
+import { AddcandidateManagementComponent } from './admin/addcandidate-management/addcandidate-management.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +71,9 @@ import { AllcandidatesCardComponent } from './allcandidates/allcandidates-card/a
     CandidateManagementComponent,
     AllcandidatesListComponent,
     AllcandidatesCardComponent,
+    AllwinnersListComponent,
+    AllwinnersCardComponent,
+    AddcandidateManagementComponent,
   ],
   imports: [
     BrowserModule,

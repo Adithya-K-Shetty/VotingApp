@@ -63,6 +63,12 @@ export class CandidatesService {
     );
   }
 
+  getAllWinners() {
+    return this.http.get<Candidate[]>(
+      this.baseUrl + 'candidates/get-all-winners'
+    );
+  }
+
   casteVote(params: any) {
     return this.http.put(this.baseUrl + 'candidates/cast-vote', params).pipe(
       map(() => {

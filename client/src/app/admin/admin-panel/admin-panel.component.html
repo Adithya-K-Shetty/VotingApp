@@ -16,5 +16,10 @@
         <app-candidate-management></app-candidate-management>
       </div>
     </tab>
+    <tab heading="Add Candidates" *appHasRole="['Admin', 'Moderator']">
+      <div class="container">
+        <app-addcandidate-management></app-addcandidate-management>
+      </div>
+    </tab>
   </tabset>
 </div>

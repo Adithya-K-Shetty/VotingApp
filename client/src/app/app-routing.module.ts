@@ -16,6 +16,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminGuard } from './_guards/admin.guard';
 import { CandidateListComponent } from './candidates/candidate-list/candidate-list.component';
 import { AllcandidatesListComponent } from './allcandidates/allcandidates-list/allcandidates-list.component';
+import { AllwinnersListComponent } from './allwinners/allwinners-list/allwinners-list.component';
 
 const routes: Routes = [
   //By Default Path Match uses prefix
@@ -38,7 +39,7 @@ const routes: Routes = [
         canDeactivate: [PreventUnsavedChangesGuard], // prevent a user from navigating away from a route or component when there are unsaved changes
       },
       { path: 'allcandidates', component: AllcandidatesListComponent },
-      { path: 'messages', component: MessagesComponent },
+      { path: 'allwinners', component: AllwinnersListComponent },
       {
         path: 'admin',
         component: AdminPanelComponent,

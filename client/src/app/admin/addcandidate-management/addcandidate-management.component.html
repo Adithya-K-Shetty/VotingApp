@@ -1,0 +1,164 @@
+<form
+  #loginForm="ngForm"
+  class="form-horizontal tex-center"
+  (ngSubmit)="submitCandidate()"
+  autocomplete="off"
+>
+  <h2 class="text-center signUpText">Sign In</h2>
+  <hr />
+  <div class="row">
+    <div class="col-6">
+      <div class="mt-5 mb-3">
+        <input
+          name="username"
+          [(ngModel)]="model.candidateName"
+          class="form-control me-2"
+          type="text"
+          placeholder="Candidatename"
+        />
+      </div>
+      <div class="mb-3">
+        <select
+          name="partyName"
+          [(ngModel)]="model.partyName"
+          class="form-control"
+        >
+          <option value="">Choose Party</option>
+          <option value="Fire">Fire</option>
+          <option value="Water">Water</option>
+          <option value="Air">Air</option>
+          <option value="Soil">Soil</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <select
+          name="district"
+          [(ngModel)]="model.district"
+          class="form-control"
+          (change)="onDistrictChange()"
+        >
+          <option value="">Choose District</option>
+          <option value="Kasaragod">Kasaragod</option>
+          <option value="Kannur">Kannur</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <select
+          name="gramPanchayat"
+          [(ngModel)]="model.gramPanchayat"
+          class="form-control"
+        >
+          <option value="">Choose Gram Panchayat</option>
+          <option *ngFor="let option of gramPanchayatOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-success" type="submit">submit</button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="text-center">
+          <h3>Add Photos</h3>
+
+          <div
+            ng2FileDrop
+            [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+            (fileOver)="fileOverBase($event)"
+            [uploader]="uploader"
+            class="card bg-faded p-3 text-center mb-3 my-drop-zone"
+          >
+            <i class="fa fa-upload fa-3x"></i>
+            Drop Photos Here
+          </div>
+
+          <!-- Multiple
+          <input
+            type="file"
+            ng2FileSelect
+            [uploader]="uploader"
+            multiple
+          /><br />
+
+          Single
+          <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+        </div>
+
+        <div
+          class="col-9"
+          style="margin-bottom: 40px"
+          *ngIf="uploader?.queue?.length"
+        >
+          <h3>Upload queue</h3>
+          <p>Queue length: {{ uploader?.queue?.length }}</p>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="50%">Name</th>
+                <th>Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of uploader?.queue">
+                <td>
+                  <strong>{{ item?.file?.name }}</strong>
+                </td>
+                <td *ngIf="uploader?.options?.isHTML5" nowrap>
+                  {{ item?.file?.size / 1024 / 1024 | number : ".2" }} MB
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div>
+            <div>
+              Queue progress:
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [ngStyle]="{ width: uploader?.progress + '%' }"
+                ></div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-success btn-s"
+              (click)="uploader?.uploadAll()"
+              [disabled]="!uploader?.getNotUploadedItems()?.length"
+            >
+              <span class="fa fa-upload"></span> Upload all
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning btn-s"
+              (click)="uploader?.cancelAll()"
+              [disabled]="!uploader?.isUploading"
+            >
+              <span class="fa fa-ban"></span> Cancel all
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-s"
+              (click)="uploader?.clearQueue()"
+              [disabled]="!uploader?.queue?.length"
+            >
+              <span class="fa fa-trash"></span> Remove all
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="text-center">
+    <button class="btn btn-success" type="submit">Login</button>
+    <button class="btn btn-default" type="button" (click)="cancle()">
+      Cancel
+    </button>
+  </div> -->
+</form>

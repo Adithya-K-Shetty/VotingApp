@@ -8,6 +8,8 @@ using API.Helpers;
 using API.interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
@@ -23,6 +25,22 @@ namespace API.Data
             _context = context;
             
         }
+
+        // public async Task<ActionResult<CandidateDto>> AddCandidate(IFormFile file, CandidateRegisterDto candidateRegisterDto)
+        // {
+        //    var new_candidate = _mapper.Map<CandidateData>(candidateRegisterDto);
+        //    _context.Candidates.Add(new_candidate);
+
+        //     if( await _context.SaveChangesAsync() > 0)
+        //     {
+        //         var candidate = await _context.Candidates
+        //      .Include(p => p.Photos)
+        //     .SingleOrDefaultAsync(x => x.RegionCode == candidateRegisterDto.RegionCode && x.PartyName == candidateRegisterDto.PartyName);
+
+             
+
+        //     }
+        // }
 
         public async Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync()
         {
