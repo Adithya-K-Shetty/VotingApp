@@ -26,8 +26,12 @@ export class NavComponent implements OnInit {
         if (user) {
           this.user = user;
         }
+        console.log('Helloooooo' + this.user);
       },
     });
+    if (this.voteDate == new Date().getDate() && new Date().getHours() < 18) {
+      this.show = false;
+    }
     if (this.voteDate != new Date().getDate() && new Date().getHours() < 18) {
       this.show = false;
     }

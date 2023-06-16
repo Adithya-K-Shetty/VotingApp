@@ -122,7 +122,7 @@ namespace API.Controllers
 
            candidate.VoteCount += 1;
 
-           user.HasVoted = false;
+           user.HasVoted = true;
 
             if(await _candidateRepository.SaveAllAsync()) 
             {

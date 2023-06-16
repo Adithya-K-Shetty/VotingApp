@@ -14,3 +14,9 @@ img {
 .fileDropBg {
   background-color: rgb(88, 122, 247);
 }
+
+.chooseFile2 {
+  position: relative;
+  left: 200px;
+  bottom: 30px;
+}

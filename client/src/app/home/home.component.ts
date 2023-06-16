@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
       this.homeString = this.fullVoteDate;
     } else if (this.voteDate == new Date().getDate()) {
       this.homeString = 'Voting Is Live';
+    } else if (this.voteDate < new Date().getDate()) {
+      this.homeString = 'Voting Has Been Closed';
     }
   }
 
