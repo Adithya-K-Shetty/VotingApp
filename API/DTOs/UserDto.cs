@@ -17,6 +17,7 @@ namespace API.DTOs
         public string GramPanchayat {get;set;}
 
         public bool HasVoted {get;set;}
+        public bool LoginAllowed {get;set;}
         public string VoterIdNumber {get;set;}
         public List<PhotoDto> Documents {get;set;}
     }

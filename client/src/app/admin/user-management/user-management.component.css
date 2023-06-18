@@ -1,0 +1,22 @@
+img {
+  width: 200px;
+  height: 200px;
+  border: 1px;
+  /* border-radius: 50%; */
+}
+
+.approveBtn {
+  padding: 10px 30px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  color: #000000;
+  background-color: rgb(1, 189, 42);
+}
+
+.approvedBtn {
+  padding: 10px 30px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  color: #000000;
+  background-color: rgb(1, 117, 189);
+}

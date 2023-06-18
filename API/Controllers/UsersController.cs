@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Authorize]
+    
     public class UsersController : BaseApiController //Inheritence
     {
         private readonly IUserRepository _userRepository;
@@ -52,11 +52,37 @@ namespace API.Controllers
             return Ok(users);
         }
 
+         [HttpGet("get-all-users")]
+         public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers(){
+            var allCandidates = await _userRepository.GetAllUsersAsync();
+            return Ok(allCandidates); 
+        }
+        //  public async Task<ActionResult<IEnumerable<AppUser>>> GetAllUsers(){
+        //     var allUsers = await _userRepository.GetUsersAsync();
+        //     return Ok(allUsers); 
+        // }
+
+
         [HttpGet("{username}")]
         public async Task<ActionResult<UserDto>> GetUser(string username)
         {
            return await _userRepository.GetUserAsync(username);
             
+        }
+
+        [HttpPut("allow-user")]
+        public async Task<ActionResult<UserDto>> AllowUser(UserUpdateDto userUpdateDto)
+        {
+            var allowedUser = await _userRepository.GetUserForApproveAsync(userUpdateDto.Username,userUpdateDto.VoterIdNumber);
+            //if(allowedUser.LoginAllowed) return BadRequest("Authenticated User");
+
+            allowedUser.LoginAllowed = !allowedUser.LoginAllowed;
+
+            if(await _userRepository.SaveAllAsync()) return Ok(_mapper.Map<UserDto>(allowedUser)); //http status code 204 which says everything is ok but nothing to return
+
+            return BadRequest("Failed To Authenticate User");
+
+
         }
 
         [HttpPut]

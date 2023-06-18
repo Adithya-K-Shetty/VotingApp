@@ -15,6 +15,8 @@ namespace API.interfaces
         //at the user end
         Task<IEnumerable<AppUser>> GetUsersAsync();
 
+        Task<IEnumerable<UserDto>> GetAllUsersAsync();
+
         Task<AppUser> GetUserByIdAsync(int id);
 
         Task<AppUser> GetUserByUsernameAsync(string username);
@@ -26,5 +28,7 @@ namespace API.interfaces
         Task<MemberDto> GetMemberAsync(string username);
 
         Task<UserDto> GetUserAsync(string username);
+
+        Task<AppUser> GetUserForApproveAsync(string username,string voterid);
     }
 }

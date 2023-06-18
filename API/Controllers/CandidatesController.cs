@@ -9,11 +9,13 @@ using API.Extensions;
 using API.Helpers;
 using API.interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    
     public class CandidatesController : BaseApiController
     {
         private readonly ICandidateRepository _candidateRepository;

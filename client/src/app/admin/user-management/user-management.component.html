@@ -2,16 +2,31 @@
   <table class="table">
     <thead>
       <tr>
-        <th style="width: 30%">Username</th>
-        <th style="width: 40%">Active Roles</th>
-        <th style="width: 30%">Location</th>
+        <th style="width: 20%">Username</th>
+        <th style="width: 20%">Voter Id Number</th>
+        <th style="width: 40%">Voter Id</th>
+        <th style="width: 20%"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of allusers">
         <td>{{ user.username }}</td>
-        <td>{{ user.roles }}</td>
-        <td>{{ user.district }}</td>
+        <td>{{ user.voterIdNumber }}</td>
+        <td>
+          <img src="{{ user.documentUrl }}" alt="" />
+        </td>
+        <td>
+          <button
+            (click)="allowUser(user)"
+            class="approveBtn"
+            [ngClass]="{
+              approveBtn: !user.loginAllowed,
+              approvedBtn: user.loginAllowed
+            }"
+          >
+            {{ user.loginAllowed ? "Disapprove" : "Approve" }}
+          </button>
+        </td>
         <!-- <td>
           <button (click)="openRolesModal(user)" class="btn btn-info">
             Edit Roles

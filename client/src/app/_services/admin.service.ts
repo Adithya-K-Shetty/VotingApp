@@ -22,6 +22,14 @@ export class AdminService {
     );
   }
 
+  getAllUsers() {
+    return this.http.get<User[]>(this.baseUrl + 'users/get-all-users');
+  }
+
+  allowUser(params: any) {
+    return this.http.put(this.baseUrl + 'users/allow-user', params);
+  }
+
   updateUserRoles(username: string, roles: string[]) {
     return this.http.post<string[]>(
       this.baseUrl + 'admin/edit-roles/' + username + '?roles=' + roles,

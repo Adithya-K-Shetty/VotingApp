@@ -20,6 +20,11 @@ namespace API.Data
             
         }
 
+        public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+        {
+            return await _context.Users.ProjectTo<UserDto>(_mapper.ConfigurationProvider).ToListAsync();
+        }
+
         public async Task<MemberDto> GetMemberAsync(string username)
         {
            return await _context.Users
@@ -75,6 +80,15 @@ namespace API.Data
             .SingleOrDefaultAsync(x => x.UserName == username);
         }
 
+        public async Task<AppUser> GetUserForApproveAsync(string username, string voterid)
+        {
+            // return await _context.Users
+            //     .Where(x => x.UserName == username && x.VoterIdNumber == voterid)  //configuration take config from mapper automapperprofile
+            //     .ProjectTo<UserDto>(_mapper.ConfigurationProvider) //here we are projecting it into a member dto
+            //     .SingleOrDefaultAsync();
+            return await _context.Users.SingleOrDefaultAsync(x => x.UserName == username && x.VoterIdNumber == voterid);
+        }
+
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             //we should explicitly specify 
@@ -82,7 +96,7 @@ namespace API.Data
             //has to be fetched
             //specifically it is called as eager loading
             return await _context.Users
-            // .Include(p =>p.Photos)//this causes object cycle between user and photos
+             .Include(d =>d.Documents)//this causes object cycle between user and photos
             .ToListAsync();
         }
 

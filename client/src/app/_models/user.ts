@@ -9,6 +9,7 @@ export interface User {
   gramPanchayat: string;
   gender: string;
   hasVoted: boolean;
+  loginAllowed: boolean;
   roles: string[];
   documents: Photo[];
 }

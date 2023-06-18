@@ -64,6 +64,8 @@ namespace API.Controllers
             .SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
 
             if(user == null) return Unauthorized("Invalid Username");
+
+            if(!user.LoginAllowed) return Unauthorized("Admin Has Not Allowed Yet");
             
             var result = await _userManager.CheckPasswordAsync(user,loginDto.Password);
 
@@ -78,6 +80,7 @@ namespace API.Controllers
                     District = user.District,
                     GramPanchayat = user.GramPanchayat,
                     HasVoted = user.HasVoted,
+                    LoginAllowed = user.LoginAllowed,
                     DocumentUrl = user.Documents.FirstOrDefault(x => x.AppUserId == user.Id)?.Url
                 };
           }
