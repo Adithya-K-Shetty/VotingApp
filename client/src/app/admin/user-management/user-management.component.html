@@ -10,10 +10,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of allusers">
-        <td>{{ user.username }}</td>
-        <td>{{ user.voterIdNumber }}</td>
+        <td class="userDataStyle">{{ user.username | titlecase }}</td>
+        <td class="userDataStyle">{{ user.voterIdNumber }}</td>
         <td>
-          <img src="{{ user.documentUrl }}" alt="" />
+          <img
+            src="{{ user.documentUrl || './assets/Default_Doc.png' }}"
+            alt=""
+          />
         </td>
         <td>
           <button

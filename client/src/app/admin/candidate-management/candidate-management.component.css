@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 img {
   width: 100px;
@@ -8,7 +8,7 @@ img {
 }
 
 .candidateDataStyle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }

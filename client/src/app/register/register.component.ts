@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   District: any = ['Kasaragod', 'Kannur'];
   GramPanchayat: any = [];
   kasaragoadGramPanchayat = ['Mangalapady', 'Manjewswaram'];
-  kannurGramPanchayat = ['Udayagiri', 'Cherkala'];
+  kannurGramPanchayat = ['Udayagiri', 'Chirrakal'];
   constructor(
     private accountService: AccountService,
     private toastr: ToastrService,

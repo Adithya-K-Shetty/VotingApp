@@ -1,3 +1,33 @@
+<form
+  #loginFome="ngForm"
+  class="d-flex customFormStyle"
+  autocomplete="off"
+  (ngSubmit)="FilterCandidates()"
+>
+  <select
+    name="district"
+    [(ngModel)]="model.district"
+    class="form-control w-25"
+    style="border: 2px solid rgb(243, 108, 130); color: rgb(243, 108, 130)"
+    (change)="onDistrictChange()"
+  >
+    <option value="">Choose District</option>
+    <option value="Kasaragod">Kasaragod</option>
+    <option value="Kannur">Kannur</option>
+  </select>
+  <select
+    name="gramPanchayat"
+    [(ngModel)]="model.gramPanchayat"
+    class="form-control w-25 ms-2"
+    style="border: 2px solid rgb(146, 108, 243); color: rgb(146, 108, 243)"
+  >
+    <option value="">Choose Gram Panchayat</option>
+    <option *ngFor="let option of gramPanchayatOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+  <button class="btn btn-success ms-2" type="submit">Filter</button>
+</form>
 <div class="row">
   <div class="col-3" *ngFor="let candidate of allcandidates">
     <app-allcandidates-card [candidate]="candidate"></app-allcandidates-card>

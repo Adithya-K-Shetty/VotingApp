@@ -1,4 +1,15 @@
 .form-horizontal {
   display: block;
-  margin: 50% auto;
+  /* margin: 50% auto; */
+}
+
+img {
+  width: 450px;
+  height: 400px;
+  position: relative;
+  bottom: 100px;
+}
+form {
+  position: relative;
+  bottom: 100px;
 }

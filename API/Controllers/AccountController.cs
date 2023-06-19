@@ -61,7 +61,7 @@ namespace API.Controllers
           {
             var user = await _userManager.Users
              .Include(d => d.Documents)
-            .SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
+            .SingleOrDefaultAsync(x => x.UserName == loginDto.UserName.ToLower());
 
             if(user == null) return Unauthorized("Invalid Username");
 

@@ -14,7 +14,7 @@ import { getHours } from 'ngx-bootstrap/chronos/utils/date-getters';
 export class NavComponent implements OnInit {
   model: any = {};
   user: User | undefined;
-  voteDate = 18;
+  voteDate = 19;
   show = true;
   constructor(
     public accountService: AccountService,
@@ -32,7 +32,7 @@ export class NavComponent implements OnInit {
     if (this.voteDate == new Date().getDate() && new Date().getHours() < 18) {
       this.show = false;
     }
-    if (this.voteDate != new Date().getDate() && new Date().getHours() < 18) {
+    if (this.voteDate != new Date().getDate()) {
       this.show = false;
     }
   }

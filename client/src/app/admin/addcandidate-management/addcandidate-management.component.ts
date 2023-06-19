@@ -45,7 +45,7 @@ export class AddcandidateManagementComponent implements OnInit {
     if (this.model.district === 'Kasaragod') {
       this.gramPanchayatOptions = ['Mangalapady', 'Manjewswaram'];
     } else if (this.model.district === 'Kannur') {
-      this.gramPanchayatOptions = ['Udayagiri', 'Cherkala'];
+      this.gramPanchayatOptions = ['Udayagiri', 'Chirrakal'];
     } else {
       this.gramPanchayatOptions = [];
     }
