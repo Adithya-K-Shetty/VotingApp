@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: (_) => this.router.navigateByUrl('/candidates'),
+      next: (_) => {
+        if (this.model.username.toLowerCase() == 'admin')
+          this.router.navigateByUrl('/allcandidates');
+        else this.router.navigateByUrl('/candidates');
+      },
       error: (error) => this.toastr.error('Admin Has Not Allowed Yet'),
     });
   }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 .brandNameBg {
   background-color: #d4ebfc;
   border-radius: 50%;
@@ -30,7 +30,7 @@
 .customNavStyle {
   font-size: 20px;
   margin-left: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   border: 1px solid rgb(249, 104, 128);
   background-color: rgb(89, 96, 236);
@@ -38,6 +38,6 @@
 }
 .userBtn {
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
 }

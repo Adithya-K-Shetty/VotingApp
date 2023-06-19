@@ -23,21 +23,21 @@
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
             *appHasRole="['Member']"
-            >Vote Booth</a
-          >
+            >Vote Booth <i class="fa fa-archive" aria-hidden="true"></i
+          ></a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link customNavStyle"
             routerLink="/allcandidates"
             routerLinkActive="active"
-            >AllCandidates</a
-          >
+            >AllCandidates <i class="fa fa-users" aria-hidden="true"></i
+          ></a>
         </li>
         <li class="nav-item customNavStyle" *ngIf="show">
           <a class="nav-link" routerLink="/allwinners" routerLinkActive="active"
-            >Winners</a
-          >
+            >Winners <i class="fa fa-trophy" aria-hidden="true"></i
+          ></a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/lists" routerLinkActive="active"
@@ -54,8 +54,8 @@
           class="nav-item customNavStyle"
         >
           <a class="nav-link" routerLink="/admin" routerLinkActive="active"
-            >Admin</a
-          >
+            >Admin <i class="fa fa-lock" aria-hidden="true"></i
+          ></a>
         </li>
       </ng-container>
     </ul>
