@@ -15,7 +15,7 @@ export class CandidateCardComponent implements OnInit {
   user: User | undefined;
   disableBtn = false;
   //disableBtn = false;
-  votedate = '19-6-2023';
+  votedate = '20-6-2023';
 
   constructor(
     private toastr: ToastrService,

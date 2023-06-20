@@ -64,12 +64,16 @@
   <div class="text-center">
     <button
       [disabled]="!registerForm.valid"
-      class="btn btn-success me-2"
+      class="btn btn-success me-2 registerBtnStyle"
       type="submit"
     >
       Register
     </button>
-    <button class="btn btn-default" type="button" (click)="cancle()">
+    <button
+      class="btn btn-default registerBtnStyle"
+      type="button"
+      (click)="cancle()"
+    >
       Cancel
     </button>
   </div>
