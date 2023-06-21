@@ -122,6 +122,8 @@ namespace API.Controllers
 
             if(candidate == null) return NotFound();
 
+            if(user.HasVoted) return BadRequest("Already Voted");
+
            candidate.VoteCount += 1;
 
            user.HasVoted = true;
@@ -136,6 +138,18 @@ namespace API.Controllers
                
             }
             return BadRequest("Problem In Casting Vote");
+        }
+
+        [HttpDelete("remove-candidate")]
+        public async Task<ActionResult> RemoveCandidate(CasteVoteDto casteVoteDto)
+        {
+            var candidate = await _candidateRepository.GetCandidateByRegionPartyAsync(casteVoteDto.RegionCode,casteVoteDto.PartyName);
+            if(candidate == null) return NotFound();
+            else
+                _candidateRepository.DeleteCandidate(candidate);
+
+            if(await _candidateRepository.SaveAllAsync()) return Ok();
+            return BadRequest("Problem Removing The Candidate");
         }
 
     }

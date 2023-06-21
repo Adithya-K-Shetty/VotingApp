@@ -15,7 +15,7 @@ export class CandidateCardComponent implements OnInit {
   user: User | undefined;
   disableBtn = false;
   //disableBtn = false;
-  votedate = '20-6-2023';
+  votedate = '21-6-2023';
 
   constructor(
     private toastr: ToastrService,
@@ -50,6 +50,9 @@ export class CandidateCardComponent implements OnInit {
     ) {
       this.disableBtn = this.user.hasVoted;
       //this.disableBtn = this.user.hasVoted;
+    }
+    if (date_string == this.votedate && (currentHour < 6 || currentHour > 18)) {
+      this.disableBtn = false;
     }
   }
 

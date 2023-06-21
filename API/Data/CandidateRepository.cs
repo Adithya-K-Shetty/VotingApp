@@ -91,5 +91,10 @@ namespace API.Data
         {
              return await _context.SaveChangesAsync() > 0;
         }
+
+        public void DeleteCandidate(CandidateData candidateData)
+        {
+            _context.Candidates.Remove(candidateData);
+        }
     }
 }

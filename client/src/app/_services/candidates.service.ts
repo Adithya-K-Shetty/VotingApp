@@ -77,4 +77,14 @@ export class CandidatesService {
       })
     );
   }
+
+  deleteCandidate(params: any) {
+    const options = {
+      body: params,
+    };
+    return this.http.delete(
+      this.baseUrl + 'candidates/remove-candidate',
+      options
+    );
+  }
 }

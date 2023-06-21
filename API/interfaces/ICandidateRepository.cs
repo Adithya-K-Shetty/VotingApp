@@ -20,6 +20,8 @@ namespace API.interfaces
 
          Task<IEnumerable<CandidateDto>> GetAllWinners();
 
+         void DeleteCandidate(CandidateData candidateData);
+
          //Task<ActionResult<CandidateDto>> AddCandidate(IFormFile file,CandidateRegisterDto candidateRegisterDto);
     }
 }

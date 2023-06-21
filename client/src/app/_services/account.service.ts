@@ -41,7 +41,6 @@ export class AccountService {
   logout() {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
-    this.presenceService.stopHubConnection();
   }
 
   register(model: any) {
@@ -62,7 +61,6 @@ export class AccountService {
     Array.isArray(roles) ? (user.roles = roles) : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
-    // this.presenceService.createHubConnection(user);
   }
 
   //in this method we get the roles

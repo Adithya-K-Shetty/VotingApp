@@ -10,7 +10,8 @@
         <th style="width: 20%">PartyName</th>
         <th style="width: 20%">PartyLogo</th>
         <th style="width: 20%">Region</th>
-        <th style="width: 20%">VoteCount</th>
+        <th style="width: 10%">VoteCount</th>
+        <th style="width: 10%"></th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,15 @@
           {{ candidate.district }}, {{ candidate.gramPanchayat }}
         </td>
         <td class="candidateDataStyle">{{ candidate.voteCount }}</td>
+        <td>
+          <button
+            [disabled]="delete_disable"
+            class="btn btn-danger"
+            (click)="deleteCandidate(candidate)"
+          >
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
