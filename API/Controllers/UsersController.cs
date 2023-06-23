@@ -10,9 +10,11 @@ using API.Extensions;
 using API.Helpers;
 using API.interfaces;
 using AutoMapper;
+using System.Net.Mail;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace API.Controllers
 {
@@ -77,6 +79,33 @@ namespace API.Controllers
             //if(allowedUser.LoginAllowed) return BadRequest("Authenticated User");
 
             allowedUser.LoginAllowed = !allowedUser.LoginAllowed;
+            
+
+            //testing email sending
+            if(allowedUser.LoginAllowed)
+            {
+                var emailSubject = "Login Allowed";
+                var emailBody = "Your login has been allowed.";
+                var userEmail = allowedUser.UserEmailId;
+                try{
+                    using(var smtpClient = new SmtpClient())
+                    {
+                        smtpClient.Host="smtp.elasticemail.com";
+                        smtpClient.Port = 2525;
+                        smtpClient.EnableSsl = true;
+                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.Credentials = new NetworkCredential("adithyakshettyshetty682@gmail.com", "32A11ED9D70BDF3945183EC537E0C6243269");
+                        var message = new MailMessage("adithyakshettyshetty682@gmail.com", userEmail, emailSubject, emailBody);
+                        await smtpClient.SendMailAsync(message);
+                    }
+                }
+                catch (Exception ex)
+                {
+           
+                    return BadRequest("Failed to send email: " + ex.Message);
+                }
+            }
+            //end of email sending
 
             if(await _userRepository.SaveAllAsync()) return Ok(_mapper.Map<UserDto>(allowedUser)); //http status code 204 which says everything is ok but nothing to return
 

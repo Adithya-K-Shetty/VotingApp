@@ -12,6 +12,9 @@ namespace API.DTOs
         public string UserName{get; set;}
 
         [Required]
+        public string UserEmailId {get;set;}
+
+        [Required]
         public string VoterIdNumber {get;set;}
 
         [Required]

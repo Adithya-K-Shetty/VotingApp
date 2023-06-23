@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
+      userEmailId: ['', Validators.required],
       voterIdNumber: ['', Validators.required],
       district: ['', Validators.required],
       gramPanchayat: ['', Validators.required],

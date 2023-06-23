@@ -9,5 +9,7 @@ namespace API.DTOs
     {
         public string Username{get; set;}
         public string VoterIdNumber {get;set;}
+
+        public string UserEmailId {get;set;}
     }
 }

@@ -5,6 +5,10 @@ import { AdminService } from 'src/app/_services/admin.service';
 import { RolesModalComponent } from 'src/app/modals/roles-modal/roles-modal.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+//import { EmailObfuscatorService } from 'ngx-email-obfuscator';
+// import '../../../assets/smtp.js';
+// declare let Email: any;
+
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
@@ -17,6 +21,7 @@ export class UserManagementComponent implements OnInit {
   bsModalRef: BsModalRef<RolesModalComponent> =
     new BsModalRef<RolesModalComponent>(); //creating a reference to the roles-modal component
   availableRoles = ['Admin', 'Moderator', 'Member'];
+  // Email: any;
 
   constructor(
     private adminService: AdminService,
@@ -50,8 +55,23 @@ export class UserManagementComponent implements OnInit {
     };
     this.adminService.allowUser(params).subscribe({
       next: (response: any) => {
-        if (response.loginAllowed) this.toastr.success('Approved User');
-        else this.toastr.warning('Disapproved User');
+        if (response.loginAllowed) {
+          this.toastr.success('Approved User');
+          // Email.send({
+          //   Host: 'smtp.elasticemail.com',
+          //   Username: 'adithyakshettyshetty682@gmail.com',
+          //   Password: '32A11ED9D70BDF3945183EC537E0C6243269',
+          //   To: 'adithyakshettyshetty682@gmail.com',
+          //   From: 'adithyakshettyshetty682@gmail.com',
+          //   Subject: 'Login Allowed',
+          //   Body: 'You Can Successfully Login',
+          // }).then((message: string) => {
+          //   alert(message);
+          // });
+        } else this.toastr.warning('Disapproved User');
+        /**testing email*/
+
+        /**end of testing */
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {

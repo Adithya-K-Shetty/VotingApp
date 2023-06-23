@@ -21,6 +21,8 @@ namespace API.Entities
 
         public string District {get; set;}
 
+        public string UserEmailId {get;set;}
+
        public string GramPanchayat {get; set;}
 
        public bool HasVoted {get;set;}
