@@ -126,7 +126,7 @@ namespace API.Controllers
 
            candidate.VoteCount += 1;
 
-           user.HasVoted = true;
+           user.HasVoted = false;
 
             if(await _candidateRepository.SaveAllAsync()) 
             {

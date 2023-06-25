@@ -4,6 +4,8 @@ import { Candidate } from 'src/app/_models/candidate';
 import { User } from 'src/app/_models/user';
 import { CandidatesService } from 'src/app/_services/candidates.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { VoteModalComponent } from 'src/app/modals/vote-modal/vote-modal.component';
 
 @Component({
   selector: 'app-candidate-card',
@@ -15,13 +17,16 @@ export class CandidateCardComponent implements OnInit {
   user: User | undefined;
   disableBtn = false;
   //disableBtn = false;
-  votedate = '21-6-2023';
+  votedate = '25-6-2023';
+  bsModalRef: BsModalRef<VoteModalComponent> =
+    new BsModalRef<VoteModalComponent>();
 
   constructor(
     private toastr: ToastrService,
     private candidateService: CandidatesService,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private modalSevice: BsModalService
   ) {
     const newDate = new Date();
     const currentHour = newDate.getHours() + 1;
@@ -63,23 +68,58 @@ export class CandidateCardComponent implements OnInit {
       regionCode: candidate.district + '-' + candidate.gramPanchayat,
       partyName: candidate.partyName,
     };
-    this.candidateService.casteVote(params).subscribe({
+    /**testing modal */
+    const config = {
+      class: 'modal-dialog-centered',
+      initialState: {
+        candidateName: candidate.candidateName,
+        partyName: candidate.partyName,
+        region: candidate.district + '-' + candidate.gramPanchayat,
+      },
+    };
+
+    this.bsModalRef = this.modalSevice.show(VoteModalComponent, config);
+    this.bsModalRef.onHide?.subscribe({
       next: () => {
-        this.toastr.success('Successfully Voted');
-        const userString = localStorage.getItem('user');
-        console.log(userString);
-        if (!userString) return;
-        this.user = JSON.parse(userString);
-        if (this.user && this.user.hasVoted) {
-          this.disableBtn = this.user.hasVoted;
-          this.router
-            .navigateByUrl('/', { skipLocationChange: true })
-            .then(() => {
-              this.router.navigate(['/candidates']);
-            });
+        if (this.bsModalRef.content?.confirmed) {
+          this.candidateService.casteVote(params).subscribe({
+            next: () => {
+              this.toastr.success('Successfully Voted');
+              const userString = localStorage.getItem('user');
+              console.log(userString);
+              if (!userString) return;
+              this.user = JSON.parse(userString);
+              if (this.user && this.user.hasVoted) {
+                this.disableBtn = this.user.hasVoted;
+                this.router
+                  .navigateByUrl('/', { skipLocationChange: true })
+                  .then(() => {
+                    this.router.navigate(['/candidates']);
+                  });
+              }
+            },
+          });
         }
       },
     });
+    /**end of testing */
+    // this.candidateService.casteVote(params).subscribe({
+    //   next: () => {
+    //     this.toastr.success('Successfully Voted');
+    //     const userString = localStorage.getItem('user');
+    //     console.log(userString);
+    //     if (!userString) return;
+    //     this.user = JSON.parse(userString);
+    //     if (this.user && this.user.hasVoted) {
+    //       this.disableBtn = this.user.hasVoted;
+    //       this.router
+    //         .navigateByUrl('/', { skipLocationChange: true })
+    //         .then(() => {
+    //           this.router.navigate(['/candidates']);
+    //         });
+    //     }
+    //   },
+    // });
   }
 
   /*--------Testing----------------*/

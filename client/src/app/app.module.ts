@@ -40,6 +40,7 @@ import { AllcandidatesCardComponent } from './allcandidates/allcandidates-card/a
 import { AllwinnersListComponent } from './allwinners/allwinners-list/allwinners-list.component';
 import { AllwinnersCardComponent } from './allwinners/allwinners-card/allwinners-card.component';
 import { AddcandidateManagementComponent } from './admin/addcandidate-management/addcandidate-management.component';
+import { VoteModalComponent } from './modals/vote-modal/vote-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AddcandidateManagementComponent } from './admin/addcandidate-management
     AllwinnersListComponent,
     AllwinnersCardComponent,
     AddcandidateManagementComponent,
+    VoteModalComponent,
   ],
   imports: [
     BrowserModule,
