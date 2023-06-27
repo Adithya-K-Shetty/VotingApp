@@ -42,10 +42,10 @@ namespace API.Data
         //     }
         // }
 
-        public async Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync()
-        {
-            return await _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider).ToListAsync();
-        }
+        // public async Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync()
+        // {
+        //     return await _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider).ToListAsync();
+        // }
 
         public async Task<IEnumerable<CandidateDto>> GetAllWinners()
         {
@@ -95,6 +95,13 @@ namespace API.Data
         public void DeleteCandidate(CandidateData candidateData)
         {
             _context.Candidates.Remove(candidateData);
+        }
+
+        public async Task<PagedList<CandidateDto>> GetAllCandidatesAsync(UserParams userParams)
+        {
+            var query = _context.Candidates.AsQueryable();
+            return await PagedList<CandidateDto>.CreateAsync(query.AsNoTracking().ProjectTo<CandidateDto>(_mapper.ConfigurationProvider),userParams.PageNumber,userParams.PageSize);
+
         }
     }
 }

@@ -16,7 +16,9 @@ namespace API.interfaces
 
         Task<CandidateData> GetCandidateByRegionPartyAsync(string regioncode,string partyname);
 
-        Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync();
+        // Task<IEnumerable<CandidateDto>> GetAllCandidatesAsync();
+
+        Task<PagedList<CandidateDto>> GetAllCandidatesAsync(UserParams userParams);
 
          Task<IEnumerable<CandidateDto>> GetAllWinners();
 

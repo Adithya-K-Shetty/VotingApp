@@ -1,3 +1,10 @@
 .customFormStyle {
   margin-left: 30%;
 }
+
+.my-pagination::ng-deep .page-item.active .page-link {
+  z-index: 1;
+  color: rgb(92, 32, 246);
+  background-color: rgb(243, 108, 130) !important;
+  border-color: rgb(243, 108, 130);
+}

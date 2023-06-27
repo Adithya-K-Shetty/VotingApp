@@ -6,6 +6,7 @@ import { Observable, map, take } from 'rxjs';
 import { AccountService } from './account.service';
 import { CandidateParams } from '../_models/candidateParams';
 import { User } from '../_models/user';
+import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root',
@@ -57,10 +58,24 @@ export class CandidatesService {
     });
   }
 
-  getAllCandidates() {
-    return this.http.get<Candidate[]>(
-      this.baseUrl + 'candidates/get-all-candidates'
+  getAllCandidates(candidateParams: CandidateParams) {
+    let params = getPaginationHeaders(
+      candidateParams.pageNumber,
+      candidateParams.pageSize
     );
+
+    return getPaginatedResult<Candidate[]>(
+      this.baseUrl + 'candidates/get-all-candidates',
+      params,
+      this.http
+    ).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+    // return this.http.get<Candidate[]>(
+    //   this.baseUrl + 'candidates/get-all-candidates'
+    // );
   }
 
   getAllWinners() {

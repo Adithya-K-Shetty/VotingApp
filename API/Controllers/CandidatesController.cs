@@ -42,8 +42,9 @@ namespace API.Controllers
         }
 
         [HttpGet("get-all-candidates")]
-        public async Task<ActionResult<IEnumerable<CandidateDto>>> GetAllCandidates(){
-            var allCandidates = await _candidateRepository.GetAllCandidatesAsync();
+        public async Task<ActionResult<PagedList<CandidateDto>>> GetAllCandidates([FromQuery]UserParams userParams){
+            var allCandidates = await _candidateRepository.GetAllCandidatesAsync(userParams);
+            Response.AddPaginationHeader(new PaginationHeader(allCandidates.CurrentPage,allCandidates.PageSize,allCandidates.TotalCount,allCandidates.TotalPages));
             return Ok(allCandidates); 
         }
 
