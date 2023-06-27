@@ -17,7 +17,7 @@ export class CandidateCardComponent implements OnInit {
   user: User | undefined;
   disableBtn = false;
   //disableBtn = false;
-  votedate = '25-6-2023';
+  votedate = '26-6-2023';
   bsModalRef: BsModalRef<VoteModalComponent> =
     new BsModalRef<VoteModalComponent>();
 

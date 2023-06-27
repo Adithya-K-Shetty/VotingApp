@@ -106,7 +106,9 @@ export class RegisterComponent implements OnInit {
     this.accountService.register(values).subscribe({
       next: () => {
         //this.router.navigateByUrl('/candidates');
-        this.toastr.info('Your Account Will Be Activated Soon');
+        this.toastr.info(
+          'Your Account Will Be Activated Soon And Will Be Notified Via Mail'
+        );
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {

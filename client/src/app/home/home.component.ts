@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   registerMode = false;
   loginMode = false;
-  voteDate = 21;
-  fullVoteDate = 'On 21-05-2023';
+  voteDate = 26;
+  fullVoteDate = 'On 26-05-2023';
   homeString = '';
   users: any;
   constructor() {
